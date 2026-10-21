@@ -1,9 +1,10 @@
 @font-face {
   font-family: 'Satoshi';
-  src: url('../fonts/OTF/Satoshi-Black.otf') format('opentype'),
+  src: 
+        url('../fonts/OTF/Satoshi-Medium.otf') format('opentype'),
+        url('../fonts/OTF/Satoshi-Black.otf') format('opentype'),
         url('../fonts/OTF/Satoshi-Bold.otf') format('opentype'),
         url('../fonts/OTF/Satoshi-Light.otf') format('opentype'),
-        url('../fonts/OTF/Satoshi-Medium.otf') format('opentype'),
         url('../fonts/OTF/Satoshi-Regular.otf') format('opentype'),
         url('../fonts/OTF/Satoshi-SemiBold.otf') format('opentype');
   font-weight: normal;
@@ -13,14 +14,23 @@
 * {
     font-family: 'Satoshi', sans-serif;
     cursor: url('../images/arrow-cursor.png') 0 0, auto;
+    margin: 0; 
+    padding: 0;
 }
 
 #container {
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    height: 100%;
+    margin: 0;
     background-color: #d1c8c5;
     padding: 20px;
+    margin: 0;
+
+    img.white {
+        filter: brightness(0) invert(1);
+    }
+
+    img.issue {
+        border: solid 1px black;
+        box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.5);
+    }
 }
