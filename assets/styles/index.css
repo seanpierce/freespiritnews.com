@@ -1,0 +1,26 @@
+@font-face {
+  font-family: 'Satoshi';
+  src: url('./assets/fonts/OTF/Satoshi-Black.otf') format('opentype'),
+        url('./assets/fonts/OTF/Satoshi-Bold.otf') format('opentype'),
+        url('./assets/fonts/OTF/Satoshi-Light.otf') format('opentype'),
+        url('./assets/fonts/OTF/Satoshi-Medium.otf') format('opentype'),
+        url('./assets/fonts/OTF/Satoshi-Regular.otf') format('opentype'),
+        url('./assets/fonts/OTF/Satoshi-SemiBold.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+* {
+    font-family: 'Satoshi', sans-serif;
+    cursor: url('../images/arrow-cursor.png') 0 0, auto;
+}
+
+#container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #d1c8c5;
+    padding: 20px;
+}
