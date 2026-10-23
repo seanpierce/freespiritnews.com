@@ -1,21 +1,70 @@
 @font-face {
-  font-family: 'Satoshi';
-  src: 
-	url('../fonts/OTF/Satoshi-Medium.otf') format('opentype'),
-	url('../fonts/OTF/Satoshi-Black.otf') format('opentype'),
-	url('../fonts/OTF/Satoshi-Bold.otf') format('opentype'),
-	url('../fonts/OTF/Satoshi-Light.otf') format('opentype'),
-	url('../fonts/OTF/Satoshi-Regular.otf') format('opentype'),
-	url('../fonts/OTF/Satoshi-SemiBold.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
+    font-family: 'Satoshi';
+    src: url('../fonts/OTF/Satoshi-Light.otf') format('opentype');
+    font-weight: 300;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/OTF/Satoshi-Regular.otf') format('opentype');
+    font-weight: 400;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/OTF/Satoshi-Medium.otf') format('opentype');
+    font-weight: 500;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/OTF/Satoshi-SemiBold.otf') format('opentype');
+    font-weight: 600;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/OTF/Satoshi-Bold.otf') format('opentype');
+    font-weight: 700;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Satoshi';
+    src: url('../fonts/OTF/Satoshi-Black.otf') format('opentype');
+    font-weight: 900;
+    font-style: normal;
 }
 
 * {
-	font-family: 'Satoshi', sans-serif;
-	cursor: url('../images/arrow-cursor.png') 0 0, auto;
 	margin: 0; 
 	padding: 0;
+	cursor: url('../images/arrow-cursor.png') 0 0, auto;
+}
+
+body {
+    font-family: 'Satoshi', sans-serif;
+    font-weight: 400;
+}
+
+h1 {
+    font-weight: 900;
+}
+
+h2 {
+    font-weight: 700;
+}
+
+p {
+    font-weight: 400;
+}
+
+.small {
+    font-weight: 300;
 }
 
 #container {
@@ -25,12 +74,62 @@
 	padding: 20px;
 	margin: 0;
 
+	#header, #footer {
+		display: block;
+		margin-bottom: 20px;
+		padding: 16px;
+
+		img {
+			display: inline-block;
+			width: 100%;
+			max-width: 1600px;
+		}
+	}
+
+	#content {
+		width: 100%;
+		max-width: 1200px;
+
+		.row {
+			display: flex;
+			flex-direction: row;
+			gap: 20px;
+			align-items: center;
+
+			.sec-img {
+				flex: 4;
+    			min-width: 0;
+			}
+
+			.sec-desc {
+				flex: 1;
+    			min-width: 0;
+			}
+		}
+	}
+
 	img.white {
 		filter: brightness(0) invert(1);
 	}
 
-	img.issue {
-		/* border: solid 1px black; */
+	img#issue {
 		box-shadow: 6px 6px 24px rgba(0, 0, 0, 0.8);
+		z-index: 1;
+		display: absolute;
+		right: 40px;
+		top: 200px;
 	}
+}
+
+.draggable {
+    position: absolute;
+    cursor: grab;
+    user-select: none;
+    -webkit-user-select: none;
+    touch-action: none;
+    -webkit-user-drag: none;
+}
+
+.draggable.dragging {
+    cursor: grabbing;
 }

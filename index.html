@@ -9,25 +9,95 @@
 </head>
 <body>
 	<div id="container">
-		<img src="./assets/images/FSN-horizontal-logo.webp" alt="Logo Image" class="logo-image">
-		<img src="./assets/images/line.webp" alt="line" class="logo-image-vertical">
-		<img class="issue" src="./assets/images/FSN16-cover.webp" alt="Logo Image" class="logo-image-vertical">
-		<img class="white" src="./assets/images/advertising.webp" alt="Advertising Image" class="advertising-image">
-		<img class="white" src="./assets/images/submissions.webp" alt="submissions.webp Image" class="branding-image">
-		<img class="white" src="./assets/images/book.webp" alt="Book Image" class="book-image">
-		<img class="white" src="./assets/images/news.webp" alt="News Image" class="news-image">
-		<img src="./assets/images/line.webp" alt="line" class="logo-image-vertical">
-		<img src="./assets/images/frog.webp" alt="Subscribe Image" class="frog-image">
-
-		<div>
-			Is a free, erratically (radicaly) published newspaper out of Portland, Oregon. A harbinger of ancient truths and modern lies distributed at local shops and places.
+		<div id="header">
+			<img src="./assets/images/fsn logo image.png" alt="Logo Image" class="logo-image">
+			<img src="./assets/images/line png.png" alt="line" class="logo-image-vertical">
 		</div>
 
-		<div>
-			Send 300 dpi black and white drawings and comics in JPG or TIF format to: submissions@freespiritnews.org
-			Paypal $45 and include any ad copy in the comments. Our crack team of designers is ready to hand draw your ad: ads@freespiritnews.org
-			We also published an archival compendium (hardcover book) of the first 10 years of Free Spirit News. You can find it here: https://floatingworldcomics.com/
+		<div id="content">
+			<img 
+				id="issue" 
+				class="draggable" 
+				draggable="false" 
+				src="./assets/images/FSN16-cover.webp" alt="Logo Image" class="logo-image-vertical"
+			>
+
+			<div class="row">
+				<img class="white sec-img" src="./assets/images/advertising.webp" alt="Advertising Image" class="advertising-image">
+				<div class="sec-desc">
+					<p>Paypal $45 and include any ad copy in the comments. Our crack team of designers is ready to hand draw your ad: ads@freespiritnews.org</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<img class="white sec-img" src="./assets/images/submissions.webp" alt="submissions.webp Image" class="branding-image">
+				<div class="sec-desc">
+					<p>Send 300 dpi black and white drawings and comics in JPG or TIF format to: submissions@freespiritnews.org</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<img class="white sec-img" src="./assets/images/book.webp" alt="Book Image" class="book-image">
+				<div class="sec-desc">
+					<p>We also published an archival compendium (hardcover book) of the first 10 years of Free Spirit News. You can find it here: https://floatingworldcomics.com/</p>
+				</div>
+			</div>
+
+			<div class="row">
+				<img class="white sec-img" src="./assets/images/news.webp" alt="News Image" class="news-image">
+				<div class="sec-desc">
+					<p>Is a free, erratically (radicaly) published newspaper out of Portland, Oregon. A harbinger of ancient truths and modern lies distributed at local shops and places.</p>
+				</div>
+			</div>
+		</div>
+
+		<div id="footer">
+			<img src="./assets/images/line png.png" alt="line" class="logo-image-vertical">
+			<img src="./assets/images/frog.webp" alt="Subscribe Image" class="frog-image">
 		</div>
 	</div>
 </body>
+
+<script>
+const element = document.querySelector('.draggable');
+
+let startX = 0;
+let startY = 0;
+let x = 0;
+let y = 0;
+
+element.addEventListener('dragstart', (e) => {
+    e.preventDefault();
+});
+
+element.addEventListener('pointerdown', (e) => {
+    if (e.button !== 0) return;
+
+    startX = e.clientX - x;
+    startY = e.clientY - y;
+
+    element.setPointerCapture(e.pointerId);
+    element.classList.add('dragging');
+});
+
+element.addEventListener('pointermove', (e) => {
+    if (!element.hasPointerCapture(e.pointerId)) return;
+
+    x = e.clientX - startX;
+    y = e.clientY - startY;
+
+    element.style.transform = `translate(${x}px, ${y}px)`;
+});
+
+function stopDragging(e) {
+    if (element.hasPointerCapture(e.pointerId)) {
+        element.releasePointerCapture(e.pointerId);
+    }
+
+    element.classList.remove('dragging');
+}
+
+element.addEventListener('pointerup', stopDragging);
+element.addEventListener('pointercancel', stopDragging);
+</script>
 </html>
